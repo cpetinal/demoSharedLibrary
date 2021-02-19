@@ -1,6 +1,6 @@
 package org.cpetinal.jenkins.controllers
 
-import org.cpetinal.jenkins.tools.GitTools
+import org.cpetinal.jenkins.tools.GitTool
 
 class DoGitController {
 
@@ -8,7 +8,7 @@ class DoGitController {
 
     def pipelineContext
 
-    GitTools gitTools
+    GitTool gitTools
 
     DoGitController(){
 
@@ -16,11 +16,11 @@ class DoGitController {
 
     void init (def pipelineContext){
         this.pipelineContext = pipelineContext
-        this.gitTools = new GitTools(this.pipelineContext)
+        this.gitTools = new GitTool(this.pipelineContext)
     }
 
     void cloneproject (String credentials, String repoLocation){
-        this.gitTools.gitClone(credentials, repoLocation)
+        this.gitTools.gitClone(credentials, repoLocation, this.pipelineContext.env.BRANCH_NAME)
     }
 
 }

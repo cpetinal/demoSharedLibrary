@@ -1,7 +1,6 @@
 package org.cpetinal.jenkins.controllers
 
 import org.cpetinal.jenkins.Exceptions.MakeToolException
-import org.cpetinal.jenkins.tools.GitTools
 import org.cpetinal.jenkins.tools.MakeTool
 
 class DoUTController {
@@ -24,7 +23,7 @@ class DoUTController {
         try {
             this.makeTool.ut()
         }catch (MakeToolException ex){
-            if (ex.task.equals("ut")){
+            if (ex.task.equals("UT")){
                 this.pipelineContext.echo ("Warning Yoy need pass to production deployment")
                 this.pipelineContext.currentBuild.result = 'UNSTABLE'
             }

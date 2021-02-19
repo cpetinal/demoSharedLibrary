@@ -1,14 +1,14 @@
 package org.cpetinal.jenkins.tools
 
-class GitTools {
+class GitTool {
 
     def pipelineContext
 
-    GitTools(def pipelineContext){
+    GitTool(def pipelineContext){
         this.pipelineContext = pipelineContext
     }
 
-    void gitClone(String credentials, String repoLocation, String branch = "master"){
+    void gitClone(String credentials, String repoLocation, def branch = "master"){
         this.pipelineContext.git(branch: "${branch}" , credentialsId: "${credentials}", url: "${repoLocation}")
     }
 }

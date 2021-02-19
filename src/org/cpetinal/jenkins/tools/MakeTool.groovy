@@ -19,6 +19,6 @@ class MakeTool {
     void ut(){
         //TODO: create a make UT call
         //dummy exception to emulate UT fail
-        new MakeToolException("there are test error review it", "UT")
+        throw new MakeToolException("there are test error review it", "UT")
     }
 }

@@ -11,7 +11,7 @@ DoBuildController doBuildController = new DoBuildController()
 @Field
 AgentController agentController = new AgentController()
 
-def call() {
+def call(String artifact) {
 
     doBuildController.init(this)
     agentController.init(this)
@@ -20,7 +20,7 @@ def call() {
             node(agentController.getAgent()) {
                 timeout(agentController.timeOut()) {
                     echo "starting Build Stage"
-                    doBuildController.build()
+                    doBuildController.build(artifact)
                 }
             }
         }

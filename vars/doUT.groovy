@@ -4,9 +4,6 @@ import org.cpetinal.jenkins.controllers.AgentController
 import org.cpetinal.jenkins.controllers.DoUTController
 
 @Field
-String STAGE_NAME="Unit Test"
-
-@Field
 AgentController agentController = new AgentController()
 
 @Field
@@ -17,8 +14,9 @@ def call() {
     agentController.init(this)
     utController.init(this)
     stage(utController.STAGE_NAME) {
-        node("master") {
-            timeout(agentController.timeOut) {
+        node(agentController.getAgent()) {
+            timeout(agentController.timeOut()) {
+                echo "starting UT"
                 utController.executeUT()
             }
         }
