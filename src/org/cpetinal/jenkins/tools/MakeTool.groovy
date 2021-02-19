@@ -15,4 +15,10 @@ class MakeTool {
     void build(){
         this.pipelineContext.sh (BUILD_COMMAND)
     }
+
+    void ut(){
+        //TODO: create a make UT call
+        //dummy exception to emulate UT fail
+        new MakeToolException("there are test error review it", "UT")
+    }
 }

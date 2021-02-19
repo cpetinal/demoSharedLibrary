@@ -8,7 +8,7 @@ class GitTools {
         this.pipelineContext = pipelineContext
     }
 
-    void gitClone(String credentials, String repoLocation){
-        this.pipelineContext.git(branch: "develop" , credentialsId: 'token2', url: 'https://github.com/cpetinal/CoolGame.git')
+    void gitClone(String credentials, String repoLocation, String branch = "master"){
+        this.pipelineContext.git(branch: "${branch}" , credentialsId: "${credentials}", url: "${repoLocation}")
     }
 }

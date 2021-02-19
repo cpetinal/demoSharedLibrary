@@ -2,7 +2,7 @@
 
 # Usage
 ```java
-doCompile()
+doBuild()
 ```
 
 # Params
