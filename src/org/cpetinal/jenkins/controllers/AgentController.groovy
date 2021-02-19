@@ -4,15 +4,19 @@ class AgentController {
 
     def pipelineContext
 
-    AgentController (def pipelineContext){
+    AgentController (){
+
+    }
+
+    void init(def pipelineContext){
         this.pipelineContext = pipelineContext
     }
 
-    getAgent(){
+    String getAgent(){
         return "master"
     }
 
-    getTimeOut(){
+    def getTimeOut(){
         if (this.pipelineContext.env.BRANCH_NAME == 'develop') {
             return 10
         } else{

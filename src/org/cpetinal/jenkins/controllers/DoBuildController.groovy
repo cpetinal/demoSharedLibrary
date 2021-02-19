@@ -10,15 +10,17 @@ class DoBuildController {
 
     def pipelineContext
 
-    DoBuildController(def pipelineContext){
+    DoBuildController(){
+
+    }
+
+    void init(def pipelineContext){
         this.pipelineContext = pipelineContext
-    }
-
-    init(){
         this.makeTool = new MakeTool(this.pipelineContext)
+
     }
 
-    build(){
+    void build(){
         makeTool.build()
     }
 

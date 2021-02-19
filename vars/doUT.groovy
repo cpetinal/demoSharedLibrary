@@ -4,7 +4,7 @@ import groovy.transform.Field
 @Field
 String STAGE_NAME="Unit Test"
 
-def call(def map = [:]) {
+def call() {
 
     stage(STAGE_NAME) {
         node("master") {

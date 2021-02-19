@@ -11,14 +11,17 @@ DoBuildController doBuildController = new DoBuildController()
 @Field
 AgentController agentController = new AgentController()
 
-def call(def map = [:]) {
+def call() {
 
     doBuildController.init(this)
-    stage(doBuildController.STAGE_NAME) {
-        node(agentController.getAgent()) {
-            timeout(agentController.timeOut()) {
-                echo "starting Build Stage"
-                doBuildController.build()
+    agentController.init(this)
+    node{
+        stage(doBuildController.STAGE_NAME) {
+            node(agentController.getAgent()) {
+                timeout(agentController.timeOut()) {
+                    echo "starting Build Stage"
+                    doBuildController.build()
+                }
             }
         }
     }

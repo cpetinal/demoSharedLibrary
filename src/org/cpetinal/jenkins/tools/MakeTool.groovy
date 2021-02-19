@@ -12,7 +12,7 @@ class MakeTool {
         this.pipelineContext = pipelineContext
     }
 
-    build(){
+    void build(){
         this.pipelineContext.sh (BUILD_COMMAND)
     }
 }
