@@ -4,7 +4,6 @@ import org.cpetinal.jenkins.controllers.AgentController
 import org.cpetinal.jenkins.controllers.DoBuildController
 
 
-
 @Field
 DoBuildController doBuildController = new DoBuildController()
 
